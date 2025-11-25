@@ -5,7 +5,7 @@ import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
 
-public class ChronoTypeAnalyser implements SleepAnalyzer{
+public class ChronoTypeAnalyser implements SleepAnalyzer {
     private static final LocalTime NIGHT_START = LocalTime.of(20, 0); // 20:00
     private static final LocalTime NIGHT_END   = LocalTime.of(9, 0);  // 09:00
 
