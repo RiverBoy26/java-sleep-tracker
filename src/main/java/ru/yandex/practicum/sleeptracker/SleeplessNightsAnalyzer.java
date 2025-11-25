@@ -6,7 +6,6 @@ import java.time.LocalTime;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
-import java.util.stream.LongStream;
 
 public class SleeplessNightsAnalyzer implements SleepAnalyzer {
 
