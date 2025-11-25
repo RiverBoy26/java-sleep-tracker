@@ -9,8 +9,8 @@ import java.util.stream.Collectors;
 
 public class SleeplessNightsAnalyzer implements SleepAnalyzer {
 
-    private static final LocalTime NIGHT_START = LocalTime.of(20, 0); // 20:00
-    private static final LocalTime NIGHT_END   = LocalTime.of(9, 0);  // 09:00
+    private static final LocalTime NIGHT_START = LocalTime.of(20, 0);
+    private static final LocalTime NIGHT_END   = LocalTime.of(9, 0);
 
     @Override
     public String name() {
@@ -41,7 +41,6 @@ public class SleeplessNightsAnalyzer implements SleepAnalyzer {
 
         long present = nightDates.size();
 
-        // количество пропущенных ночей — все дни в интервале мин..макс минус имеющиеся ночи
         return totalDays - present;
     }
 
@@ -49,10 +48,8 @@ public class SleeplessNightsAnalyzer implements SleepAnalyzer {
         LocalTime st = s.start().toLocalTime();
         LocalTime en = s.end().toLocalTime();
 
-        // Считаем сессию ночной, если она начинается/заканчивается в "ночном" окне
-        // или пересекает полуночный момент.
         return st.isAfter(NIGHT_START) || st.isBefore(NIGHT_END)
                 || en.isAfter(NIGHT_START) || en.isBefore(NIGHT_END)
-                || (s.start().toLocalDate().isBefore(s.end().toLocalDate())); // пересекает полуночье
+                || (s.start().toLocalDate().isBefore(s.end().toLocalDate()));
     }
 }
