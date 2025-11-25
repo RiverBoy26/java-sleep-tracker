@@ -8,7 +8,7 @@ import java.util.stream.Stream;
 
 public class SleepLogReader {
     public List<SleepSession> read(Path file) {
-        try (Stream<String> lines = Files.lines(file)){
+        try (Stream<String> lines = Files.lines(file)) {
             return lines.filter(line -> !line.isBlank())
                     .map(SleepSession::fromLine)
                     .toList();
